@@ -1,8 +1,4 @@
-const const emojiData = [
-    "😀", "😂", "😍", "🥳", "😎", "😭", "🎉", "✈️", "🍴", "🏃‍♂️",
-    "🌟", "⚡️", "🎁", "📖", "❤️", "🔥", "🍎", "🍊", "🍓", "🍇"
-];
-
+const emojiData = ["😀", "😂", "😍", "🥳", "😎", "😭", "🎉", "✈️", "🍴", "🏃‍♂️"];
 function initEmojiToolbar() {
     const toolbar = document.getElementById("emojiToolbar");
     emojiData.forEach((emoji) => {
