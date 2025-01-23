@@ -29,9 +29,8 @@ function addEmoji(emoji) {
 
 function generateFormattedText() {
     const inputText = document.getElementById("inputText").value;
-    const textWithSemanticEmojis = addSemanticEmojis(inputText);
     const mockAppContent = document.getElementById("mockAppContent");
-    mockAppContent.innerHTML = textWithSemanticEmojis
+    mockAppContent.innerHTML = inputText
         .split("\n")
         .map((line) => `<p>${line}</p>`)
         .join("");
