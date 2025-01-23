@@ -47,13 +47,14 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
             overflow-y: auto;
         }
 
         textarea {
             width: 100%;
             max-width: 600px;
-            height: 150px;
+            height: 200px;
             margin-bottom: 10px;
             padding: 10px;
             font-size: 16px;
@@ -72,9 +73,14 @@
         }
 
         #appSimulator {
+            width: 25%;
             display: flex;
             justify-content: center;
-            width: 100%;
+            align-items: center;
+            background-color: #f9f9f9;
+            padding: 20px;
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
         }
 
         .iphone-16 {
@@ -129,13 +135,12 @@
         <textarea id="inputText" placeholder="请输入您的文字（最多1500字）"></textarea>
         <div id="charCount">0/1500</div>
         <button onclick="generateFormattedText()">生成排版</button>
-
-        <div id="appSimulator">
-            <div class="iphone-16">
-                <div class="screen">
-                    <div class="mock-header">小红书预览</div>
-                    <div class="mock-content" id="mockAppContent"></div>
-                </div>
+    </div>
+    <div id="appSimulator">
+        <div class="iphone-16">
+            <div class="screen">
+                <div class="mock-header">小红书预览</div>
+                <div class="mock-content" id="mockAppContent"></div>
             </div>
         </div>
     </div>
