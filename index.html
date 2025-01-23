@@ -47,6 +47,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            overflow-y: auto;
         }
 
         textarea {
@@ -92,7 +93,7 @@
             height: 100%;
             background: white;
             border-radius: 40px;
-            overflow: hidden;
+            overflow-y: auto;
             display: flex;
             flex-direction: column;
         }
@@ -110,6 +111,12 @@
             font-size: 16px;
             line-height: 1.6;
             overflow-y: auto;
+            flex: 1;
+        }
+
+        .mock-content p {
+            margin: 0;
+            margin-bottom: 10px;
         }
     </style>
 </head>
@@ -126,7 +133,7 @@
         <div id="appSimulator">
             <div class="iphone-16">
                 <div class="screen">
-                    <div class="mock-header">Emoji 显示</div>
+                    <div class="mock-header">小红书预览</div>
                     <div class="mock-content" id="mockAppContent"></div>
                 </div>
             </div>
