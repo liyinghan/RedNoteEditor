@@ -23,6 +23,7 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             display: flex;
             flex-wrap: wrap;
+            justify-content: space-between;
             gap: 5px;
             overflow-x: auto;
         }
@@ -36,6 +37,8 @@
             cursor: pointer;
             border-radius: 5px;
             transition: background-color 0.3s;
+            flex: 1 1 calc(33.33% - 10px);
+            max-width: calc(33.33% - 10px);
         }
 
         #emojiToolbar button:hover {
@@ -138,42 +141,14 @@
 </head>
 <body>
     <div id="emojiToolbar">
-        <button>😀</button>
-        <button>😂</button>
-        <button>😍</button>
-        <button>🥳</button>
-        <button>😎</button>
-        <button>😭</button>
-        <button>🎉</button>
-        <button>✈️</button>
-        <button>🍎</button>
-        <button>🍔</button>
-        <button>❤️</button>
-        <button>🔥</button>
-        <button>⭐</button>
-        <button>⚡</button>
-        <button>📚</button>
-        <button>🛍️</button>
-        <button>🏃‍♂️</button>
-        <button>🎂</button>
-        <button>🍰</button>
-        <button>🏠</button>
-        <button>🏫</button>
-        <button>📱</button>
-        <button>🎵</button>
-        <button>🎶</button>
-        <button>🔔</button>
-        <button>👍</button>
-        <button>👎</button>
-        <button>👏</button>
-        <button>🙏</button>
+        <!-- Emoji buttons dynamically generated from emoji.js -->
     </div>
     <div id="mainContainer">
         <div id="editorContainer">
             <h1>语义 Emoji 排版工具</h1>
             <textarea id="inputText" placeholder="请输入您的文字（最多1500字）"></textarea>
             <div id="charCount">0/1500</div>
-            <button onclick="generateFormattedText()">生成排版</button>
+            <button onclick="generateFormattedText()">生成小红书排版</button>
         </div>
         <div id="appSimulator">
             <div class="iphone-16">
