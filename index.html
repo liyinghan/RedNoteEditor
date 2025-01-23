@@ -5,19 +5,130 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>语义 Emoji 排版工具</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #emojiToolbar {
+            width: 20%;
+            background-color: #f0f0f0;
+            padding: 10px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+        }
+
+        #emojiToolbar button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 5px;
+            font-size: 20px;
+            text-align: center;
+            border: none;
+            background-color: #fff;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        #emojiToolbar button:hover {
+            background-color: #e0e0e0;
+        }
+
+        #editorContainer {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        textarea {
+            width: 100%;
+            max-width: 600px;
+            height: 150px;
+            margin-bottom: 10px;
+            padding: 10px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        #charCount {
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        #appSimulator {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .iphone-16 {
+            position: relative;
+            width: 428px;
+            height: 926px;
+            background: #000;
+            border-radius: 60px;
+            border: 20px solid #000;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .screen {
+            width: 100%;
+            height: 100%;
+            background: white;
+            border-radius: 40px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mock-header {
+            background-color: #ff4d4f;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 20px;
+        }
+
+        .mock-content {
+            padding: 20px;
+            font-size: 16px;
+            line-height: 1.6;
+            overflow-y: auto;
+        }
+    </style>
 </head>
 <body>
-    <h1>语义 Emoji 排版工具</h1>
-    <div id="emojiToolbar"></div>
-    <textarea id="inputText" placeholder="请输入您的文字（最多1500字）"></textarea>
-    <div id="charCount">0/1500</div>
-    <button onclick="generateFormattedText()">生成排版</button>
+    <div id="emojiToolbar">
+        <!-- Emoji Toolbar -->
+    </div>
+    <div id="editorContainer">
+        <h1>语义 Emoji 排版工具</h1>
+        <textarea id="inputText" placeholder="请输入您的文字（最多1500字）"></textarea>
+        <div id="charCount">0/1500</div>
+        <button onclick="generateFormattedText()">生成排版</button>
 
-    <div id="appSimulator">
-        <div class="iphone-16">
-            <div class="screen">
-                <div class="mock-header">Emoji 显示</div>
-                <div class="mock-content" id="mockAppContent"></div>
+        <div id="appSimulator">
+            <div class="iphone-16">
+                <div class="screen">
+                    <div class="mock-header">Emoji 显示</div>
+                    <div class="mock-content" id="mockAppContent"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -25,7 +136,5 @@
     <script src="emoji.js"></script>
     <script src="semanticEmoji.js"></script>
     <script src="script.js"></script>
-    <button onclick="downloadTextFile()">导出为文本文件</button>
-
 </body>
 </html>
