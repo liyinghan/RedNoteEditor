@@ -33,10 +33,20 @@
             padding: 10px;
             font-size: 16px;
             box-sizing: border-box;
+            border: 1px solid #ccc;
+        }
+
+        textarea.over-limit {
+            border: 1px solid red;
         }
 
         #charCount {
             margin-bottom: 10px;
+            color: black;
+        }
+
+        #charCount.over-limit {
+            color: red;
         }
 
         button {
@@ -58,8 +68,8 @@
 
         .iphone-16 {
             position: relative;
-            width: 80%;
-            max-width: 342.4px;
+            width: 75%;
+            max-width: 321px;
             aspect-ratio: 428 / 926;
             background: #000;
             border-radius: 48px;
@@ -105,8 +115,8 @@
 <body>
     <div id="editorContainer">
         <h1>简化的排版工具</h1>
-        <textarea id="inputText" placeholder="请输入您的文字（最多1500字）"></textarea>
-        <div id="charCount">0/1500</div>
+        <textarea id="inputText" placeholder="请输入您的文字（最多1000字）"></textarea>
+        <div id="charCount">0/1000</div>
         <button onclick="generateFormattedText()">生成小红书排版</button>
     </div>
     <div id="appSimulator">
@@ -118,6 +128,36 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const inputText = document.getElementById("inputText");
+            const charCount = document.getElementById("charCount");
+            const maxChars = 1000;
+
+            inputText.addEventListener("input", function () {
+                const textLength = inputText.value.length;
+
+                if (textLength > maxChars) {
+                    inputText.classList.add("over-limit");
+                    charCount.classList.add("over-limit");
+                } else {
+                    inputText.classList.remove("over-limit");
+                    charCount.classList.remove("over-limit");
+                }
+
+                charCount.textContent = `${textLength}/${maxChars}`;
+            });
+        });
+
+        function generateFormattedText() {
+            const inputText = document.getElementById("inputText").value;
+            const mockAppContent = document.getElementById("mockAppContent");
+
+            mockAppContent.innerHTML = inputText
+                .split("\n")
+                .map((line) => `<p>${line}</p>`)
+                .join("");
+        }
+    </script>
 </body>
 </html>
