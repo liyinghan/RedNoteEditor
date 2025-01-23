@@ -5,13 +5,17 @@ document.addEventListener("DOMContentLoaded", function () {
     const charCount = document.getElementById("charCount");
     const maxChars = 1500;
 
-    inputText.addEventListener("input", function () {
-        const textLength = inputText.value.length;
-        if (textLength > maxChars) {
-            inputText.value = inputText.value.substring(0, maxChars);
-        }
-        charCount.textContent = `${inputText.value.length}/${maxChars}`;
-    });
+inputText.addEventListener("input", function () {
+    const textLength = inputText.value.length;
+    if (textLength > maxChars) {
+        inputText.value = inputText.value.substring(0, maxChars);
+    }
+    charCount.textContent = `${inputText.value.length}/${maxChars}`;
+
+    // 实时生成排版预览
+    generateFormattedText();
+});
+
 });
 
 function addEmoji(emoji) {
